@@ -1,0 +1,597 @@
+html, body {
+    height: 100%;
+}
+body {
+    background: url(bgHeader.jpg) repeat-x;
+	font-family: Verdana;
+	color: #5E5E5E;
+    font-size: 12px;
+    line-height: 1.2em;
+}
+#bgCont {
+	position: absolute;
+	top: 234px;
+	height: 311px;
+	width: 100%;
+	background: url(bgCont.jpg) repeat-x;
+	z-index: -1;
+}
+a {
+    color: #0C6492;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+acronym, abbr {
+	border-bottom-style:dashed;
+	border-bottom-width:1px;
+	cursor:help;
+}
+
+#content ul, #content ol {
+    margin-left: 20px;
+}
+#content ul li {
+    list-style-type: disc;
+}
+#content ol li {
+    list-style-type: decimal;
+}
+#content small {
+	font-size: .83em;
+}
+#content sup {
+	font-size: .83em;
+	vertical-align: super;
+}
+#content sub {
+	font-size: .83em;
+	vertical-align: sub;
+}
+#content hr {
+	padding-bottom: 5px;
+}
+blockquote {
+    margin: 20px;
+    font-style: italic;
+}
+pre {
+    margin: 20px;
+    padding: 5px 10px;
+    background: #eee;
+    max-height: 100px;
+    overflow: auto;
+}
+table {
+    width: 98%;
+    border-top: 1px solid #666;
+    border-left: 1px solid #666;
+}
+table.shortkey {
+    width: 98%;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+}
+table.shortkey td, th {
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+    text-align: center;
+}
+table.shortkey img {
+    max-height: 50px;
+    max-width: 100px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+}
+table.shortkey img.scaledimg {
+    max-height: none;
+    max-width: 600px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+}
+td, th {
+    padding: 5px;
+    border-bottom: 1px solid #666;
+    border-right: 1px solid #666;
+}
+dt {
+    margin: 15px 0 8px;
+}
+dd {
+    margin-left: 20px
+}
+#header {
+	position: relative;
+    width: 920px;
+    margin: 0 auto;
+    height: 50px;
+    height: 170px;
+}
+#header form {
+    position: absolute;
+    top: 13px;
+    left: 535px;
+    height: 32px;
+    width: 350px;
+    padding-left: 10px;
+    background: url(bgConnect.jpg) no-repeat;
+}
+#header form a {
+    position: absolute;
+    color: #164570;
+    display: block;
+    font-size: 10px;
+    width: 70px;
+    top: 5px;
+    right: -66px;
+}
+#send {
+    position: absolute;
+    top: 0;
+    right: 18px;
+}
+#login, #password {
+    background: #AAB3BA url(user-icon.png) 3px 3px no-repeat;
+    color: #fff;
+    border: 1px solid #7B848B;
+    position: relative;
+    top: 1px;
+    width: 118px;
+    margin-right: 6px;
+    padding: 3px 0 4px 23px;
+	height: 16px;
+	width: 123px;
+}
+#password {
+	margin-left: -7px;
+}
+#header label {
+    display: none;
+}
+#logo {
+	position: absolute;
+	top: 30px;
+	width: 250px;
+	height: 120px;
+	/*border: 1px solid black;*/
+}
+#logo tr {
+	margin: 0px;
+	padding: 0px;
+}
+#logo td {
+	margin: 0px;
+	padding: 0px; 
+	vertical-align: middle;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+}
+#logo img {
+	max-width: 245px;
+	max-height: 115px;
+}
+#global {
+    margin: 0 auto;
+    padding: 10px 30px;
+    width: 920px;
+    background: url(bgGlobal.png) no-repeat;
+    overflow: hidden;
+    min-height: 495px;
+    padding-bottom: 80px;
+}
+#content {
+    float: right;
+    width: 635px;
+    text-align: justify;
+    padding-top: 5px;
+}
+#menu {
+    float: left;
+    width: 230px;
+	padding: 10px;
+}
+#menu #menuTop {
+    background: none;
+    padding: 0;
+}
+#menu li {
+	background: url(bgMenu.png) bottom no-repeat;
+	padding: 10px 5px 10px 20px;
+	font-size: 14px;
+}
+#menu li a {
+	color: #6C6C6C;
+}
+#menu li li a {
+	color: #0A6593;
+}
+#menu li li {
+    margin-left: 20px;
+	background: none;
+	padding: 0;
+	font-size: 12px;
+	padding-top: 3px;
+}
+#menu #smallLinks {
+    margin-top: 50px;
+    background: none;
+    font-size: 10px;
+    text-align: center;
+    padding-right: 30px;
+}
+#menu .current {
+    color: #f18613;
+}
+a.current {
+    display: block;
+    background: url(menuRow.png) no-repeat 190px 5px;
+}
+html, body {
+	height:100%;
+}
+#all {
+	min-height:100%;
+	position: relative;
+}
+* html #all {
+	height:100%;
+}
+#rights {
+    background: #eee url(bgRights.gif) repeat-x;
+    width: 100%;
+    height: 30px;
+    padding-top: 20px;
+	position: absolute;
+	bottom: 0;
+}
+#rights div {
+    position: relative;
+    width: 920px;
+    margin: 0 auto;
+	font-size: 10px;
+}
+.logo {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 0;
+}
+#logoSet {
+    right: 120px;
+}
+#logoSetHeader {
+    display: block;
+    position: absolute;
+	top: 60px;
+    right: 20px;   
+}
+hr {
+    border: none;
+    border-top: 1px dotted #999;
+    width: 85%;
+    text-align: left;/*this will align it for IE*/
+    margin: 20px auto -15px 0; /*this will align it left for Mozilla*/
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+h1 {
+	font-size: 20px;
+	color: #f18613;
+	border-bottom: 1px solid #f18613;
+    	padding: 0 30px 5px 30px;
+	line-height: 1.1;
+	margin-bottom: 20px;
+	font-variant: small-caps;
+}
+h1#pagetitleheader {
+	color: #505252;
+	border: none;
+	font-size: 25px;
+	padding-left: 10px;
+	font-variant: small-caps;
+}
+h2 {
+    font-size: 20px;
+    text-align: right;
+    font-weight: bold;
+    margin-right: 20px;
+    padding-right: 25px;
+    margin-bottom: 20px;
+    margin-top:40px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #f18613;
+    color: #f18613;
+    font-variant: small-caps;
+}
+h2 span {
+    font-size: 14px;
+    font-weight: normal;
+}
+h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 20px 0 10px;
+    color: #f18613;
+    font-variant: small-caps;
+}
+h4 {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 20px 10px 10px;
+    color: #f18613;
+    font-variant: small-caps;
+}
+#bot {
+    margin: 0 auto;
+	width: 955px;
+	height: 30px;
+	background: url(bot.jpg) no-repeat;
+	padding-bottom: 60px
+}
+#sitemap ul {
+    margin: 5px 20px;
+}
+
+/* Members Listing */
+.annuaire {
+    width: 100%;
+}
+.annuaire td {
+    padding: 2px;
+}
+.annuaire_name {
+    font-size: 14px;
+}
+.annuaire_function {
+    width: 180px;
+}
+.annuaire_info {
+    width: 220px;
+}
+.annuaire, .annuaire td {
+    border: none;
+}
+
+#project ul {
+    margin-left: 20px;
+}
+
+/* Members */
+.memberCount {
+    float: right;
+    font-size: 16px;
+}
+#member {
+    position: relative;
+}
+#member img {
+    position: absolute;
+    width: 200px;
+    right: 20px;
+}
+#memberElts {
+    margin: 20px 0;
+    width: 100%;
+    overflow: hidden;
+}
+#memberElts li {
+    clear: both;
+    padding: 6px 0;
+}
+#memberElts label {
+    width: 145px;
+    display: block;
+    float: left;
+    font-weight: bold;
+}
+
+#memberElts ul {
+    float: left;
+}
+#memberElts ul li {
+    padding: 0;
+    margin-bottom: 4px;
+}
+#member div {
+    position: relative;
+    margin-left: 20px;
+    width: 80%;
+}
+#member div h3, #member div h4, #member div h5 {
+    margin: 0;
+    margin-right: 10px;
+    margin-bottom: 3px;
+    font-size: 13px;
+    float: left;
+    color: #5E5E5E;
+}
+#member div span {
+    position: absolute;
+    right: 0;
+    top: 2px;
+}
+#member div p {
+    clear: both;
+}
+#member .publication {
+    margin-left: 60px;
+    margin-bottom: 10px;
+}
+#member .publicationCont span {
+    position: static;
+}
+#member .pubType h3 {
+    color: #F18613;
+    margin: 20px 0 10px;
+    width: 100%;
+}
+#member .publication {
+    margin-left: 30px;
+}
+
+/* Publication List */
+
+.publicationCont {
+    margin-bottom: 30px;
+}
+.publicationCont h2 {
+    text-align: left;
+    width: 85%;
+    border-bottom: 1px dotted #999;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+.pubType {
+    margin-left: 25px;
+    margin-bottom: 10px;
+}
+.pubType h3 {
+    margin-top: 0;
+    margin-bottom: 3px;
+    padding: 0;
+}
+
+.publication {
+    margin-left: 30px;
+    position: relative;
+}
+.publication span {
+    font-style: italic;
+}
+.publication input {
+    position: absolute;
+    left: -25px;
+}
+#pubSearch label {
+    width: 120px;
+    display: block;
+    float: left;
+}
+#pubSearch li {
+    padding-bottom: 7px;
+}
+#pubType {
+    width: 304px;
+}
+
+#text {
+    width: 300px;
+}
+#submit {
+    margin-left: 120px;
+}
+#results .submit {
+    margin-bottom: 20px;
+}
+.submit {
+    border:1px solid #444;
+    background: #ddd;
+    padding: 1px 5px;
+}
+.submit:hover {
+    background: #eee;
+    cursor: pointer;
+}
+#authors {
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+#bibData label {
+    display: block;
+    float: left;
+    width: 120px;
+    font-weight: bold;
+}
+#publication li {
+    padding-bottom: 7px;
+}
+#bibData li {
+    padding-bottom: 12px;
+}
+#bibData p {
+    margin-left: 120px;
+}
+
+/* Events */
+.eventYear {
+    position: relative;
+    margin-bottom: 20px;
+}
+.eventYear h3 {
+    position: absolute;
+    margin: 0;
+}
+.eventYear ul {
+    margin-left: 70px;
+}
+.eventYear li {
+    padding-bottom: 5px;
+}
+
+/* Conference */
+#conference ul {
+    margin-left: 20px;
+}
+#conference li {
+    margin-bottom: 8px;
+}
+#conference label {
+    font-weight: bold;
+    width: 120px;
+    display: block;
+    float: left;
+}
+#organizer label {
+    width: 180px;
+}
+#organizer ul {
+    margin-left: 180px;
+}
+#organizer ul li {
+    margin-bottom: 2px;
+}
+
+
+/* Sitemap */
+.toplevel {
+    color: #f18613;
+    margin-top: 10px;
+    display: block;
+    font-size: 16px;
+}
+
+.pdf {
+	padding-left: 20px;
+	padding-top: 3px;
+	background: url(pdficon.gif) no-repeat;
+	height: 20px;
+	display: inline-block;
+}
+#subMenu {
+    margin-left: 20px;
+}
+#sitemessage {
+        color: red;
+        border: 1px solid red;
+        padding: 10px;
+        margin-bottom: 20px;
+	font-size: 15px;
+	font-variant: small-caps;
+	text-align: center;
+	-moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+}
+
