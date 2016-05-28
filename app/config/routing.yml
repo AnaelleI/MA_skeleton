@@ -8,5 +8,11 @@ root:
 
 main:
     path:      /Main_Page
-    defaults:  { _controller: AppBundle:Main:show }
+    defaults:  { _controller: AppBundle:Main:home }
     prefix: /src
+
+events:
+    path:      /Events
+    defaults:  { _controller: AppBundle:Main:event }
+    prefix: /src
+
