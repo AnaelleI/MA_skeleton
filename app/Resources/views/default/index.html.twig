@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+{% block myBody %}
 <div id="bgCont"></div>
 <div id="all">
     <div id="header">
@@ -83,14 +83,14 @@
 </div>
 {% endblock %}
 
-{% block javascripts %}
+{% block myJavascripts %}
     <script type="text/javascript" src="/skins/janus/jquery.js"></script>
     <script type="text/javascript" src="/skins/janus/global.js"></script>
 
     <script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
 {% endblock %}
 
-{% block stylesheets %}
+{% block myStylesheets %}
     <link rel="stylesheet" href="/skins/janus/reset.css" type="text/css">
     <link rel="stylesheet" href="/skins/janus/global.css" type="text/css">
     <link rel="stylesheet" href="/skins/janus/mw_specific.css" type="text/css">

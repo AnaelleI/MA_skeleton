@@ -10,9 +10,11 @@ class MainController extends Controller
 {
     public function homeAction(Request $request)
     {
+        dump(realpath($this->container->getParameter('kernel.root_dir').'/..'));
         return $this->render(
                 'default/index.html.twig', 
                 [
+                    'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
                     'title' => "Home",
                     'content' => "Nothing to display for now"
                 ]
@@ -24,6 +26,7 @@ class MainController extends Controller
         return $this->render(
                 'default/index.html.twig', 
                 [
+                    'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
                     'title' => "Event",
                     'content' => "Coucou ça gaz ?"
                 ]

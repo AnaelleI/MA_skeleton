@@ -3,13 +3,13 @@
     <head>
         <meta charset="UTF-8" />
         <title>{{ title }}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block myStylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
         <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml">
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block myBody %}{% endblock %}
+        {% block myJavascripts %}{% endblock %}
     </body>
 </html>
