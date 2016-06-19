@@ -32,6 +32,16 @@ index:
     defaults:  { _controller: AppBundle:Main:index }
     prefix: /src
 
+signup:
+    path:      /signup
+    defaults:  { _controller: AppBundle:Main:signup }
+    prefix: /src
+
+login:
+    path:      /login
+    defaults:  { _controller: AppBundle:Main:login }
+    prefix: /src
+
 # Bundle FOS
 
 fos_user:
