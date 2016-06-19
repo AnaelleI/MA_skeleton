@@ -100,13 +100,23 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // homepage
+        // root
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'homepage');
+                return $this->redirect($pathinfo.'/', 'root');
             }
 
-            return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
+            return array (  '_controller' => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\RedirectController::urlRedirectAction',  'path' => '/Main_Page',  'permanent' => true,  '_route' => 'root',);
+        }
+
+        // main
+        if ($pathinfo === '/Main_Page') {
+            return array (  '_controller' => 'AppBundle\\Controller\\MainController::homeAction',  '_route' => 'main',);
+        }
+
+        // events
+        if ($pathinfo === '/Events') {
+            return array (  '_controller' => 'AppBundle\\Controller\\MainController::eventAction',  '_route' => 'events',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
