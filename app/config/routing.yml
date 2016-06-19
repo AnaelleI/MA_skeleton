@@ -47,6 +47,11 @@ userCreated:
     defaults:  { _controller: AppBundle:Main:userCreated }
     prefix: /src
 
+loginOK:
+    path:      /loginOK
+    defaults:  { _controller: AppBundle:Main:loginOK }
+    prefix: /src
+
 # Bundle FOS
 
 fos_user:

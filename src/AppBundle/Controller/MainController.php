@@ -15,6 +15,16 @@ use AppBundle\Model\User;
 
 class MainController extends Controller
 {
+    public function loginOKAction(){
+        return $this->render(
+                'default/home.html.twig', 
+                [
+                    'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+                    'title' => "Creation successful",
+                    'content' => "Logged"
+                ]
+            );
+    }
 
     public function userCreatedAction(){
         return $this->render(
@@ -139,17 +149,23 @@ class MainController extends Controller
     }
 
     public function loginAction(Request $request){
+        $error = "";
         $form = $this->createLoginForm();
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // TODO search user
-            // TODO verify passwd
-            // TODO if ok
-//                return $this->redirectToRoute('task_success');
-            // TODO else
-//                return $this->redirectToRoute('not succeed');
+            $repository = $this->getDoctrine()->getRepository('AppBundle:User');
+            $user = $repository->findOneByUsername($form->get("username")->getNormData());
+
+            if($user == null)
+                $error .= "No user found. ";
+            if($error === ""){
+                if($user->getPassword() === $form->get("passwd")->getNormData())
+                    return $this->redirectToRoute('loginOK');
+                else
+                    $error .= "Password did not match. ";
+            }
         }
 
         return $this->render(
@@ -157,7 +173,8 @@ class MainController extends Controller
                 [
                     'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
                     'title' => "Log in / create an account",
-                    'form' => $form->createView()
+                    'form' => $form->createView(),
+                    'error' => $error
                 ]
             );
     }
