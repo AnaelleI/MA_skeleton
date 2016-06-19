@@ -27,6 +27,11 @@ people:
     defaults:  { _controller: AppBundle:Main:people }
     prefix: /src
 
+index:
+    path:      /index.php
+    defaults:  { _controller: AppBundle:Main:index }
+    prefix: /src
+
 # Bundle FOS
 
 fos_user:

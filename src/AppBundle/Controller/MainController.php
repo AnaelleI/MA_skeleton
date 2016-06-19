@@ -8,6 +8,39 @@ use Symfony\Component\HttpFoundation\Request;
 
 class MainController extends Controller
 {
+    public function indexAction(Request $request){
+        if($request->query->has("title") && $request->query->get("title") == "Special:UserLogin"){
+            if($request->query->has("type") && $request->query->get("type") == "signup"){
+                return $this->render(
+                        'default/signupForm.html.twig', 
+                        [
+                            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+                            'title' => "Home",
+                            'content' => "Signup"
+                        ]
+                    );
+            }
+
+            return $this->render(
+                    'default/loginForm.html.twig', 
+                    [
+                        'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+                        'title' => "Home",
+                        'content' => "Log in"
+                    ]
+                );
+        }
+
+        return $this->render(
+                'default/home.html.twig', 
+                [
+                    'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+                    'title' => "Home",
+                    'content' => "basic index"
+                ]
+            );
+    }
+
     public function homeAction(Request $request)
     {
         return $this->render(
