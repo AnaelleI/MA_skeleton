@@ -5,6 +5,11 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class MainController extends Controller
 {
@@ -21,12 +26,39 @@ class MainController extends Controller
                     );
             }
 
+            $defaultData = [
+                                'username' => '',
+                                'passwd' => 'password',
+                                'domain' => 'UTBM',
+                                'remember' => false,
+                            ];
+            $form = $this->createFormBuilder($defaultData)
+                ->add('username', TextType::class, [
+                                                        "label" => "Username:"
+                                                   ])
+                ->add('passwd', PasswordType::class, [
+                                                        "label" => "Password:"
+                                                   ])
+                ->add('domain', ChoiceType::class, [
+                                                        "choices" => [
+                                                                        "UTBM" => "UTBM"
+                                                                     ],
+                                                        "label"  => "Your domain:"
+                                                   ])
+                ->add('remember', CheckboxType::class, [
+                                                        "label" => " Remember my login on this computer"
+                                                   ])
+                ->add('send', SubmitType::class, [
+                                                        "label" => "Log in"
+                                                   ])
+                ->getForm();
+
             return $this->render(
                     'default/loginForm.html.twig', 
                     [
                         'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
                         'title' => "Home",
-                        'content' => "Log in"
+                        'form' => $form->createView()
                     ]
                 );
         }
