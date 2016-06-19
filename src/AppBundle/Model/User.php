@@ -26,13 +26,13 @@ class User extends BaseUser{
      * @var string
      * @ORM\Column(type="string", length=50)
      */
-    protected $firstName;
+    protected $name;
 
     /**
      * @var string
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=20)
      */
-    protected $lastName;
+    protected $domain;
 
     /**
      * @var string
@@ -106,11 +106,6 @@ class User extends BaseUser{
      */
     protected $pub;
 
-    public function __construct()
-    {
-
-    }
-
     /**
      * Set firstName
      *
@@ -118,9 +113,9 @@ class User extends BaseUser{
      *
      * @return User
      */
-    public function setFirstName($firstName)
+    public function setName($name)
     {
-        $this->firstName = $firstName;
+        $this->name = $name;
 
         return $this;
     }
@@ -130,33 +125,9 @@ class User extends BaseUser{
      *
      * @return string
      */
-    public function getFirstName()
+    public function getName()
     {
-        return $this->firstName;
-    }
-
-    /**
-     * Set lastName
-     *
-     * @param string $lastName
-     *
-     * @return User
-     */
-    public function setLastName($lastName)
-    {
-        $this->lastName = $lastName;
-
-        return $this;
-    }
-
-    /**
-     * Get lastName
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->lastName;
+        return $this->name;
     }
 
     /**
@@ -277,5 +248,29 @@ class User extends BaseUser{
     public function getBio()
     {
         return $this->bio;
+    }
+
+    /**
+     * Set domain
+     *
+     * @param string $domain
+     *
+     * @return User
+     */
+    public function setDomain($domain)
+    {
+        $this->domain = $domain;
+
+        return $this;
+    }
+
+    /**
+     * Get domain
+     *
+     * @return string
+     */
+    public function getDomain()
+    {
+        return $this->domain;
     }
 }

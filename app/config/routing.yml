@@ -42,6 +42,11 @@ login:
     defaults:  { _controller: AppBundle:Main:login }
     prefix: /src
 
+userCreated:
+    path:      /userCreated
+    defaults:  { _controller: AppBundle:Main:userCreated }
+    prefix: /src
+
 # Bundle FOS
 
 fos_user:

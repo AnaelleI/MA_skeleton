@@ -11,8 +11,21 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
+use AppBundle\Model\User;
+
 class MainController extends Controller
 {
+
+    public function userCreatedAction(){
+        return $this->render(
+                'default/home.html.twig', 
+                [
+                    'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+                    'title' => "Creation successful",
+                    'content' => "User created"
+                ]
+            );
+    }
 
     private function createSignupForm(){
         $defaultData = [
@@ -85,17 +98,33 @@ class MainController extends Controller
     }
 
     public function signupAction(Request $request){
+        $error = "";
+
         $form = $this->createSignupForm();
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // TODO search user
-            // TODO verify passwd
-            // TODO if ok
-//                return $this->redirectToRoute('task_success');
-            // TODO else
-//                return $this->redirectToRoute('not succeed');
+            $repository = $this->getDoctrine()->getRepository('AppBundle:User');
+            $user = $repository->findOneByUsername($form->get("username")->getNormData());
+
+            if($user != null)
+                $error .= "User already exist. ";
+            if($form->get("passwd")->getNormData() !== $form->get("passwd2")->getNormData())
+                $error .= "Password did not match. ";
+            if($error === ""){ // record
+                $user = new User();
+                $user->setUsername($form->get("username")->getNormData());
+                $user->setPassword($form->get("passwd")->getNormData());
+                $user->setDomain($form->get("domain")->getNormData());
+                $user->setName($form->get("name")->getNormData());
+                // TODO handle remember option
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+
+                return $this->redirectToRoute('userCreated');
+            }
         }
 
         return $this->render(
@@ -103,7 +132,8 @@ class MainController extends Controller
                 [
                     'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
                     'title' => "Log in / create an account",
-                    'form' => $form->createView()
+                    'form' => $form->createView(),
+                    'error' => $error
                 ]
             );
     }
