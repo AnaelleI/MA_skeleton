@@ -16,3 +16,19 @@ events:
     defaults:  { _controller: AppBundle:Main:event }
     prefix: /src
 
+# // TODO ugly handling of none selection, uses defaults instead
+nopeople:
+    path:      /People:
+    defaults:  { _controller: AppBundle:Main:noPeople }
+    prefix: /src
+
+people:
+    path:      /People:{people}
+    defaults:  { _controller: AppBundle:Main:people }
+    prefix: /src
+
+# Bundle FOS
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
