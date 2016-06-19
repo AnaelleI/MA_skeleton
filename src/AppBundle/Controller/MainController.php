@@ -46,9 +46,23 @@ class MainController extends Controller
 
     public function peopleAction(Request $request, $people)
     {
-        // TODO FIND people
+        if(strpos($people, "_") === false) // if user input is valid
+            return $this->noPeopleAction($request);
 
-        return $this->render(
+        $repo = $this->getDoctrine()->getRepository('AppBundle:User');
+
+        $p = $repo->findOneBy(
+               [
+                    "firstName" => explode("_", $people)[0],
+                    "lastName" => explode("_", $people)[1]
+               ]
+            );
+
+        if($p == null)
+            return $this->noPeopleAction($request);
+
+        // TODO render user data
+        return $this->render( 
                 'default/people.html.twig', 
                 [
                     'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
