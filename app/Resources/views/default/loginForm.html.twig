@@ -1,4 +1,5 @@
 {% extends 'index.html.twig' %}
+{% form_theme form 'form_table_layout.html.twig' %}
 
 {% block myContent %}
 {{ form_start(form) }}
@@ -6,6 +7,12 @@
 <p id="userloginlink">Don't have an account? <a href="/index.php?title=Special:UserLogin&amp;type=signup&amp;returnto=People:Descamps_philippe">Create an account</a>.</p>
 <div id="userloginprompt"><p>You must have cookies enabled to log in to MultiAgentWiki.
 </p></div>
-{{ form_widget(form) }}
+
+{{ form_row(form.username) }}
+{{ form_row(form.passwd) }}
+{{ form_row(form.domain) }}
+{{ form_row(form.remember) }}
+{{ form_row(form.login) }}
+
 {{ form_end(form) }}
 {% endblock %}

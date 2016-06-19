@@ -1,5 +1,19 @@
 {% extends 'index.html.twig' %}
+{% form_theme form 'form_table_layout.html.twig' %}
 
 {% block myContent %}
-{{ content }}
+{{ form_start(form) }}
+<h2>Create account</h2>
+<p id="userloginlink">Already have an account? <a href="/index.php?title=Special:UserLogin&amp;type=login&amp;returnto=People:Descamps_philippe">Log in</a>.</p>
+
+{{ form_row(form.username) }}
+{{ form_row(form.passwd) }}
+{{ form_row(form.domain) }}
+{{ form_row(form.passwd2) }}
+{{ form_row(form.name) }}
+<div class="prefsectiontip"><p>Real name is optional.If you choose to provide it, this will be used for giving you attribution for your work.</p></div>
+{{ form_row(form.remember) }}
+{{ form_row(form.signup) }}
+
+{{ form_end(form) }}
 {% endblock %}

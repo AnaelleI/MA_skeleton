@@ -16,12 +16,48 @@ class MainController extends Controller
     public function indexAction(Request $request){
         if($request->query->has("title") && $request->query->get("title") == "Special:UserLogin"){
             if($request->query->has("type") && $request->query->get("type") == "signup"){
+
+                $defaultData = [
+                                'username' => '',
+                                'passwd' => 'password',
+                                'domain' => 'UTBM',
+                                'remember' => false,
+                                'passwd2' => "Retype password",
+                                'name' => "Real name"
+                            ];
+                $form = $this->createFormBuilder($defaultData)
+                    ->add('username', TextType::class, [
+                                                            "label" => "Username:"
+                                                       ])
+                    ->add('passwd', PasswordType::class, [
+                                                            "label" => "Password:"
+                                                       ])
+                    ->add('domain', ChoiceType::class, [
+                                                            "choices" => [
+                                                                            "UTBM" => "UTBM"
+                                                                         ],
+                                                            "label"  => "Your domain:"
+                                                       ])
+                    ->add('remember', CheckboxType::class, [
+                                                            "label" => " Remember my login on this computer"
+                                                       ])
+                    ->add('passwd2', PasswordType::class, [
+                                                            "label" => "Retype password:"
+                                                       ])
+                    ->add('name', TextType::class, [
+                                                            "label" => "Real name:"
+                                                       ])
+                    ->add('signup', SubmitType::class, [
+                                                            "label" => "Create account"
+                                                       ])
+                    ->getForm();
+
                 return $this->render(
                         'default/signupForm.html.twig', 
                         [
                             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-                            'title' => "Home",
-                            'content' => "Signup"
+                            'title' => "Log in / create an account",
+                            'form' => $form->createView()
                         ]
                     );
             }
@@ -48,7 +84,7 @@ class MainController extends Controller
                 ->add('remember', CheckboxType::class, [
                                                         "label" => " Remember my login on this computer"
                                                    ])
-                ->add('send', SubmitType::class, [
+                ->add('login', SubmitType::class, [
                                                         "label" => "Log in"
                                                    ])
                 ->getForm();
@@ -57,7 +93,7 @@ class MainController extends Controller
                     'default/loginForm.html.twig', 
                     [
                         'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-                        'title' => "Home",
+                        'title' => "Log in / create an account",
                         'form' => $form->createView()
                     ]
                 );
