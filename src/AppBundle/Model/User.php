@@ -36,25 +36,25 @@ class User extends BaseUser{
 
     /**
      * @var string
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     protected $position;
 
     /**
      * @var string
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=20, nullable=true)
      */
     protected $phone;
 
     /**
      * @var string
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=20, nullable=true)
      */
     protected $fax;
 
     /**
      * @var string
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     protected $FOAF;
 
@@ -90,7 +90,7 @@ class User extends BaseUser{
 
     /**
      * @var string
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $bio;
 
