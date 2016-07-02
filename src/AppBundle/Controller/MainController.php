@@ -18,8 +18,8 @@ class MainController extends Controller
     public function indexAction(Request $request){
         if($request->query->has("title") && $request->query->get("title") == "Special:UserLogin"){
             if($request->query->has("type") && $request->query->get("type") == "signup")
-                return $this->redirectToRoute('signup');
-            return $this->redirectToRoute('login');
+                return $this->redirectToRoute('fos_user_registration_register');
+            return $this->redirectToRoute('fos_user_security_login');
         }
 
         return $this->render(
