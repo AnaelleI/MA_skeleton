@@ -2,7 +2,13 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{{ title }}</title>
+        <title>
+            {% if title is defined %}
+                {{ title }}
+            {% else %}
+                MutliAgent Group
+            {% endif %}
+        </title>
         {% block myStylesheets %}{% endblock %}
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
