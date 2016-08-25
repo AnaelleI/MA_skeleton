@@ -16,16 +16,14 @@ events:
     defaults:  { _controller: AppBundle:Main:event }
     prefix: /src
 
-# // TODO ugly handling of none selection, uses defaults instead
-nopeople:
-    path:      /People:
-    defaults:  { _controller: AppBundle:Main:noPeople }
-    prefix: /src
+# Change route for user management and get linked directly without changing html
 
 people:
     path:      /People:{people}
-    defaults:  { _controller: AppBundle:Main:people }
-    prefix: /src
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: fos_user_profile_show
+        permanent: true
 
 index:
     path:      /index.php

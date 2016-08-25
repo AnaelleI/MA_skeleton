@@ -1,0 +1,54 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+<h2>Log in</h2>
+
+<p id="userloginlink">Don't have an account? <a href="/index.php?title=Special:UserLogin&amp;type=signup&amp;returnto=Events">Create an account</a>.</p>
+<div id="userloginprompt"><p>You must have cookies enabled to log in to MultiAgentWiki.
+</p></div>
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<form action="{{ path("fos_user_security_check") }}" method="post">
+    <table>
+		<tbody><tr>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+			<td class="mw-label"><label for="wpName1">{{ 'security.login.username'|trans }}:</label></td>
+			<td class="mw-input">
+                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+			</td>
+		</tr>
+		<tr>
+			<td class="mw-label"><label for="wpPassword1">{{ 'security.login.password'|trans }}:</label></td>
+			<td class="mw-input">
+                <input class="loginPassword" tabindex="2" type="password" id="wpPassword1" name="_password" required="required" />
+			</td>
+		</tr>
+			<tr id="mw-user-domain-section">
+			<td class="mw-label">Your domain:</td>
+			<td class="mw-input">
+				<select name="wpDomain" value="invaliddomain" tabindex="3">
+					<option>UTBM</option>				</select>
+			</td>
+		</tr>
+			<tr>
+			<td></td>
+			<td class="mw-input">
+				<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+			</td>
+		</tr>
+				<tr>
+			<td></td>
+			<td class="mw-submit">
+				    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+		</tr>
+	</tbody>
+</table>
+
+</form>
+{% endblock fos_user_content %}
