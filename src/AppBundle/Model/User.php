@@ -73,27 +73,32 @@ class User extends BaseUser{
     protected $networkLink;
 
     /**
-     * @var blob
+     * @var link
+     * @ORM\Column(type="string", length=500, nullable=true)
      */
     protected $photo;
 
     /**
      * @var string
+     * @ORM\Column(type="integer", length=500, nullable=true)
      */
-    protected $h_index;
+    protected $hindex;
 
     /**
-     * @var string
+     * @var link
+     * @ORM\Column(type="string", length=500, nullable=true)
      */
-    protected $cvPDFLink;
+    protected $resumePdf;
 
     /**
-     * @var string
+     * @var link
+     * @ORM\Column(type="string", length=500, nullable=true)
      */
-    protected $cvLatexLink;
+    protected $resumeLatex;
 
     /**
-     * @var blob
+     * @var link
+     * @ORM\Column(type="string", length=500, nullable=true)
      */
     protected $qrcode;
 
@@ -281,5 +286,126 @@ class User extends BaseUser{
     public function getDomain()
     {
         return $this->domain;
+    }
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     *
+     * @return User
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return string
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+
+    /**
+     * Set resumePdf
+     *
+     * @param string $resumePdf
+     *
+     * @return User
+     */
+    public function setResumePdf($resumePdf)
+    {
+        $this->resumePdf = $resumePdf;
+
+        return $this;
+    }
+
+    /**
+     * Get resumePdf
+     *
+     * @return string
+     */
+    public function getResumePdf()
+    {
+        return $this->resumePdf;
+    }
+
+    /**
+     * Set resumeLatex
+     *
+     * @param string $resumeLatex
+     *
+     * @return User
+     */
+    public function setResumeLatex($resumeLatex)
+    {
+        $this->resumeLatex = $resumeLatex;
+
+        return $this;
+    }
+
+    /**
+     * Get resumeLatex
+     *
+     * @return string
+     */
+    public function getResumeLatex()
+    {
+        return $this->resumeLatex;
+    }
+
+    /**
+     * Set hindex
+     *
+     * @param integer $hindex
+     *
+     * @return User
+     */
+    public function setHindex($hindex)
+    {
+        $this->hindex = $hindex;
+
+        return $this;
+    }
+
+    /**
+     * Get hindex
+     *
+     * @return integer
+     */
+    public function getHindex()
+    {
+        return $this->hindex;
+    }
+
+    /**
+     * Set qrcode
+     *
+     * @param string $qrcode
+     *
+     * @return User
+     */
+    public function setQrcode($qrcode)
+    {
+        $this->qrcode = $qrcode;
+
+        return $this;
+    }
+
+    /**
+     * Get qrcode
+     *
+     * @return string
+     */
+    public function getQrcode()
+    {
+        return $this->qrcode;
     }
 }

@@ -1,14 +1,51 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
+<!-- // TODO handle empty fields -->
+
 <div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.name'|trans }}: {{ user.name }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
-    <p>{{ 'profile.show.domain'|trans }}: {{ user.domain }}</p>
-    <p>{{ 'profile.show.position'|trans }}: {{ user.position }}</p>
-    <p>{{ 'profile.show.phone'|trans }}: {{ user.phone }}</p>
-    <p>{{ 'profile.show.fax'|trans }}: {{ user.fax }}</p>
-    <p>{{ 'profile.show.FOAF'|trans }}: {{ user.FOAF }}</p>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <span class="bigtext"><b>{{ user.name }}</b></span>
+
+                    <p>{{ user.position }}</p>
+
+                    <p>
+                        <img style="vertical-align: middle;" src="/extensions/JanusAddons/images/phone.png">
+                        <b>{{ 'profile.show.phone'|trans }}:&nbsp;</b>{{ user.phone }}
+                    </p>
+
+                    <p>
+                        <img style="vertical-align: middle;" src="/extensions/JanusAddons/images/fax.png">
+                        <b>{{ 'profile.show.fax'|trans }}:&nbsp;</b>{{ user.fax }}
+                    </p>
+
+                    <p>
+                        <img style="vertical-align: middle;" src="/extensions/JanusAddons/images/email.png">
+                        <b>{{ 'profile.show.email'|trans }}:&nbsp;</b>{{ user.email }}
+                    </p>
+
+                    <p>
+                        <img style="vertical-align: middle;" src="/extensions/ICAPManager/images/foaf.png">
+                        <b>{{ 'profile.show.FOAF'|trans }}:&nbsp;</b>{{ user.foaf }}
+                    </p>
+                </td>
+                <td align="right">
+                    <img src="{{ user.photo }}" style="vertical-align:top;" width="150">
+                    <br></br>
+                    CV:
+                    <a href="{{ user.resumePdf }}" title="{{ user.resumePdf }}">PDF</a>
+                    <a href="{{ user.resumeLatex }}" title="{{ user.resumeLatex }}">Latex</a>
+                    <br></br>
+                    <span title="source: Google Scholar;">h-index:</span>
+                    {{ user.hindex }}
+                    <br></br>
+                    <a href="{{ user.qrcode }}" class="image" title="QR-Code"><img alt="QR-Code" src="{{ user.qrcode }}" border="0" height="150" width="150"></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") and user.username == app.user.username %}
         <a href="/profile/edit">Edit your profile</a>

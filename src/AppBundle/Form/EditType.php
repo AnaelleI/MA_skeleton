@@ -17,6 +17,11 @@ class EditType extends AbstractType
         $builder->add('phone');
         $builder->add('fax');
         $builder->add('FOAF');
+        $builder->add('photo');
+        $builder->add('resumePdf');
+        $builder->add('resumeLatex');
+        $builder->add('hindex');
+        $builder->add('qrcode');
     }
 
     public function getParent()
