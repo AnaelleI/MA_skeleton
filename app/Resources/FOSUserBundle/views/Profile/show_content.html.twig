@@ -46,6 +46,7 @@
             </tr>
         </tbody>
     </table>
+	{{ user.page|md2html }}
 
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") and user.username == app.user.username %}
         <a href="/profile/edit">Edit your profile</a>

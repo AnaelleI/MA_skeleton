@@ -68,11 +68,6 @@ class User extends BaseUser{
     protected $FOAF;
 
     /**
-     * @var string
-     */
-    protected $networkLink;
-
-    /**
      * @var link
      * @ORM\Column(type="string", length=500, nullable=true)
      */
@@ -104,21 +99,9 @@ class User extends BaseUser{
 
     /**
      * @var string
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="text", length=65537, nullable=true)
      */
-    protected $bio;
-
-    /**
-     * // TODO class sections
-     * @var sections
-     */
-    protected $sections;
-
-    /**
-     * // TODO ???
-     * publication_tab
-     */
-    protected $pub;
+    protected $page;
 
     /**
      * Set firstName
@@ -407,5 +390,29 @@ class User extends BaseUser{
     public function getQrcode()
     {
         return $this->qrcode;
+    }
+
+    /**
+     * Set page
+     *
+     * @param string $page
+     *
+     * @return User
+     */
+    public function setPage($page)
+    {
+        $this->page = $page;
+    
+        return $this;
+    }
+
+    /**
+     * Get page
+     *
+     * @return string
+     */
+    public function getPage()
+    {
+        return $this->page;
     }
 }

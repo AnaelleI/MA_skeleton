@@ -22,6 +22,7 @@ class EditType extends AbstractType
         $builder->add('resumeLatex');
         $builder->add('hindex');
         $builder->add('qrcode');
+		$builder->add('page');
     }
 
     public function getParent()
