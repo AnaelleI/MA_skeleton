@@ -25,7 +25,7 @@ class User extends BaseUser{
 
     /**
      * @var string
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50, nullable=true)
      * @Assert\NotBlank(message="Please enter your name.", groups={"Registration", "Profile"})
      * @Assert\Length(
      *     min=3,
@@ -39,7 +39,7 @@ class User extends BaseUser{
 
     /**
      * @var string
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=20, nullable=true)
      */
     protected $domain = "UTBM";
 
