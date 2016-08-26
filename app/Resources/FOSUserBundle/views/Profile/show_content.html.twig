@@ -2,7 +2,13 @@
 
 <div class="fos_user_user_show">
     <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+    <p>{{ 'profile.show.name'|trans }}: {{ user.name }}</p>
     <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+    <p>{{ 'profile.show.domain'|trans }}: {{ user.domain }}</p>
+    <p>{{ 'profile.show.position'|trans }}: {{ user.position }}</p>
+    <p>{{ 'profile.show.phone'|trans }}: {{ user.phone }}</p>
+    <p>{{ 'profile.show.fax'|trans }}: {{ user.fax }}</p>
+    <p>{{ 'profile.show.FOAF'|trans }}: {{ user.FOAF }}</p>
 
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") and user.username == app.user.username %}
         <a href="/profile/edit">Edit your profile</a>

@@ -4,6 +4,7 @@ namespace AppBundle\Model;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Multi Agent user
@@ -25,6 +26,14 @@ class User extends BaseUser{
     /**
      * @var string
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank(message="Please enter your name.", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=3,
+     *     max=50,
+     *     minMessage="The name is too short.",
+     *     maxMessage="The name is too long.",
+     *     groups={"Registration", "Profile"}
+     * )
      */
     protected $name;
 
@@ -32,7 +41,7 @@ class User extends BaseUser{
      * @var string
      * @ORM\Column(type="string", length=20)
      */
-    protected $domain;
+    protected $domain = "UTBM";
 
     /**
      * @var string
