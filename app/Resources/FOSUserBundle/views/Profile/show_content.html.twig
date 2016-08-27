@@ -3,6 +3,12 @@
 <!-- // TODO handle empty fields -->
 
 <div class="fos_user_user_show">
+
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") and user.username == app.user.username %}
+        <a href="/profile/edit">Edit your profile</a>
+    {% endif %}
+    <br></br>
+
     <table>
         <tbody>
             <tr>
@@ -46,10 +52,8 @@
             </tr>
         </tbody>
     </table>
-	{{ user.page|md2html }}
-
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") and user.username == app.user.username %}
-        <a href="/profile/edit">Edit your profile</a>
-    {% endif %}
+    <div>
+    	{{ user.page|md2html }}
+    </div>
 
 </div>
