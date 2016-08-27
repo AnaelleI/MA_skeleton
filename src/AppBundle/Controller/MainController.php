@@ -5,13 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-use AppBundle\Model\User;
 
 class MainController extends Controller
 {
@@ -21,6 +15,9 @@ class MainController extends Controller
                 return $this->redirectToRoute('fos_user_registration_register');
             return $this->redirectToRoute('fos_user_security_login');
         }
+
+        if($request->query->has("title") && $request->query->get("title") == "Special:Search") # change route for search
+            return $this->redirectToRoute('search');
 
         return $this->render(
                 'default/home.html.twig', 
