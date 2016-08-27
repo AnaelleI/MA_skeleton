@@ -11,13 +11,23 @@ use AppBundle\Model\User;
 class SearchController extends Controller
 {
     public function searchAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+
+        $query = $em->createQuery("SELECT u.page FROM AppBundle:User u WHERE u.page LIKE :searchterm")
+            ->setParameter('searchterm', '%'.$request->query->get("search").'%');
+
+        $results = $query->getResult();
+
+        dump($results);
+
+        $formRes = "</br>".$results[0]["page"];
 
         return $this->render(
                 'default/home.html.twig', 
                 [
                     'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
                     'title' => "Search",
-                    'content' => "basic search"
+                    'content' => "basic search of ".$request->query->get("search").$formRes
                 ]
             );
     }
