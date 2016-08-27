@@ -23,11 +23,12 @@ class SearchController extends Controller
         $formRes = "</br>".$results[0]["page"];
 
         return $this->render(
-                'default/home.html.twig', 
+                'default/search.html.twig', 
                 [
                     'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
                     'title' => "Search",
-                    'content' => "basic search of ".$request->query->get("search").$formRes
+                    'search' => $request->query->get("search"),
+                    'res' => $formRes
                 ]
             );
     }

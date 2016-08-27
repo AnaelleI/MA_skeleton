@@ -1,0 +1,10 @@
+{% extends 'index.html.twig' %}
+
+{% block myContent %}
+    {% if search is not defined or search == '' %}
+        Nothing to search
+    {% else %}
+        Searching {{ search }} :</br>
+        {{ res | md2html }}
+    {% endif %}
+{% endblock %}
