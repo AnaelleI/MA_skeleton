@@ -16,8 +16,12 @@ class MainController extends Controller
             return $this->redirectToRoute('fos_user_security_login');
         }
 
-        if($request->query->has("title") && $request->query->get("title") == "Special:Search") # change route for search
-            return $this->redirectToRoute('search');
+        if($request->query->has("title") && $request->query->get("title") == "Special:Search"){ # change route for search
+            if($request->query->has("search"))
+                return $this->redirectToRoute('search', array('search' => $request->query->get("search")), 301);
+            else
+                return $this->redirectToRoute('search');
+        }
 
         return $this->render(
                 'default/home.html.twig', 
