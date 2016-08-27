@@ -20,10 +20,8 @@ events:
 
 people:
     path:      /People:{people}
-    defaults:
-        _controller: FrameworkBundle:Redirect:redirect
-        route: fos_user_profile_show
-        permanent: true
+    defaults:  { _controller: AppBundle:People:people }
+    prefix: /src
 
 index:
     path:      /index.php
