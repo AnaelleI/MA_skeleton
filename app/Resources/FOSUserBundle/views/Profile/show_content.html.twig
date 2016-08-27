@@ -6,8 +6,8 @@
 
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") and user.username == app.user.username %}
         <a href="/profile/edit">Edit your profile</a>
+        <br></br>
     {% endif %}
-    <br></br>
 
     <table>
         <tbody>

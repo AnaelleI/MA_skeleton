@@ -67,7 +67,7 @@
             <li id="smallLinks">
                 <a href="/User:77.132.130.158" id="pt-anonuserpage"  title="The user page for the ip you&#039;re editing as [.]" accesskey=".">77.132.130.158</a><br><a href="/User_talk:77.132.130.158" id="pt-anontalk"  title="Discussion about edits from this IP address [n]" accesskey="n">Talk for this IP</a><br>
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    <a href="/People:{{ app.user.username }}" id="pt-anonlogin"  title="View your profile [o]" accesskey="o">{{ app.user.username }}</a>
+                    <a href="/profile" id="pt-anonlogin"  title="View your profile [o]" accesskey="o">{{ app.user.username }}</a>
                 {% else %}
                     <a href="/index.php?title=Special:UserLogin&amp;returnto=Home" id="pt-anonlogin"  title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in / create account</a>
                 {% endif %}

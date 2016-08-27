@@ -12,12 +12,15 @@ class PeopleController extends Controller
 {
     public function peopleAction(Request $request){
 
+        $repository = $this->getDoctrine()->getRepository('AppBundle:User');
+        $user = $repository->findOneByUsername($request->attributes->get("people"));
+
         return $this->render(
-                'default/home.html.twig', 
+                'default/show.html.twig', 
                 [
                     'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-                    'title' => "Search",
-                    'content' => "People ".$request->attributes->get("people")
+                    'title' => $user->getName(),
+                    'user' => $user
                 ]
             );
     }
