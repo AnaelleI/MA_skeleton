@@ -16,6 +16,115 @@ events:
     defaults:  { _controller: AppBundle:Main:event }
     prefix: /src
 
+research:
+    path:      /Research_Activities
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+publication:
+    path:      /Special:ICAPPublication
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+project:
+    path:      /Projects
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+platform:
+    path:      /Platforms
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+patents:
+    path:      /Patents
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+partners:
+    path:      /Partners
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+currentMember:
+    path:      /Internal_Members
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+associateMember:
+    path:      /External_Members
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+formerMember:
+    path:      /Former_Members
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+phdTheses:
+    path:      /PhDThesis
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+jobVacancies:
+    path:      /Jobs
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+conferencesWorkshops:
+    path:      /Conferences
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+seminars:
+    path:      /Seminars
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+venue:
+    path:      /Venue
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+contact:
+    path:      /Contact
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+publicationGuidelines:
+    path:      /Publications
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+developerGuidelines:
+    path:      /Development
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+whatLinkHere:
+    path:      /Special:WhatLinksHere/Home
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+relatedChanges:
+    path:      /Special:RecentChangesLinked/Home
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+specialPages:
+    path:      /Special:SpecialPages
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+printableVersion:
+    path:      /index.php?title=Home&amp;printable=yes" rel="alternate
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
+
+permanentLink:
+    path:      /index.php?title=Home&amp;oldid=2421
+    defaults:  { _controller: AppBundle:Main:research }
+    prefix: /src
 # Change route for user management and get linked directly without changing html
 
 people:

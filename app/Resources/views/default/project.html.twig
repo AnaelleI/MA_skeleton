@@ -1,0 +1,9 @@
+{% extends 'index.html.twig' %}
+
+{% block myContent %}
+{% if content is not defined %}
+Projects
+{% else %}
+{{ content }}
+{% endif %}
+{% endblock %}

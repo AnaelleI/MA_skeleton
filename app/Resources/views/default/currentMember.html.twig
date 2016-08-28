@@ -1,0 +1,9 @@
+{% extends 'index.html.twig' %}
+
+{% block myContent %}
+{% if content is not defined %}
+Current Members
+{% else %}
+{{ content }}
+{% endif %}
+{% endblock %}
