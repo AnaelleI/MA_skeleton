@@ -4,7 +4,25 @@
     {% if search is not defined or search == '' %}
         Nothing to search
     {% else %}
-        Searching {{ search }} :</br>
-        {{ res | md2html }}
+
+        <form id="search" method="get" action="/index.php">
+            <input name="search" size="50" value="{{ search }}" id="searchText" type="text"><input name="ns0" value="1" type="hidden">
+            <input name="title" value="Special:Search" type="hidden"><input name="fulltext" value="Search" type="hidden"><input value="Search" name="fulltext" type="submit">
+        </form>
+        <p class="mw-search-numberresults">Showing below up to <b>{{ results|length }}</b> results.</p>
+
+        <h2><span class="mw-headline">Page text matches</span></h2>
+        
+        <ul class=".mw-search-results">
+            {% for res in results %}
+                <li>
+                    <a href="/People:{{ res.username }}">{{ res.name }}</a>
+                    <div id="searchresult">
+                        {{ res.page|striptags }}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
     {% endif %}
 {% endblock %}

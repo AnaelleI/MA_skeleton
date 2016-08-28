@@ -13,14 +13,12 @@ class SearchController extends Controller
     public function searchAction(Request $request){
         $em = $this->getDoctrine()->getManager();
 
-        $query = $em->createQuery("SELECT u.page FROM AppBundle:User u WHERE u.page LIKE :searchterm")
+        $query = $em->createQuery("SELECT u.username, u.name, u.page FROM AppBundle:User u WHERE u.page LIKE :searchterm")
             ->setParameter('searchterm', '%'.$request->query->get("search").'%');
 
         $results = $query->getResult();
 
         dump($results);
-
-        $formRes = "</br>".$results[0]["page"];
 
         return $this->render(
                 'default/search.html.twig', 
@@ -28,7 +26,7 @@ class SearchController extends Controller
                     'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
                     'title' => "Search",
                     'search' => $request->query->get("search"),
-                    'res' => $formRes
+                    'results' => $results
                 ]
             );
     }
