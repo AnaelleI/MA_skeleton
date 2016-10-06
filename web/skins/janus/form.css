@@ -1,0 +1,47 @@
+#searchInput{
+  width:85%;
+}
+
+#fos_user_registration_form div {
+  margin: 6px;
+  text-align: right;
+  width: 71%;
+}
+#fos_user_registration_form > div > label {
+  margin-right: 10px;
+}
+form.fos_user_registration_register > div > input {
+    float: right;
+    margin-right: 10%;
+    margin-left: 10px;
+}
+
+#fos_user_profile_form div {
+  margin: 6px;
+  text-align: right;
+  width: 90%;
+}
+#fos_user_profile_form > div > label {
+  margin-right: 10px;
+}
+#fos_user_profile_form div input {
+  width : 75%;
+}
+#fos_user_profile_form div textarea {
+  width : 90%;
+  height: 400px;
+}
+#fos_user_profile_form div label[for="fos_user_profile_form_page"] {
+  display: block;
+  text-align: left;
+  margin-left: 15%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  color : cadetblue;
+}
+form.fos_user_profile_edit > div > input {
+    float: right;
+    margin-right: 10%;
+    margin-left: 10px;
+}
